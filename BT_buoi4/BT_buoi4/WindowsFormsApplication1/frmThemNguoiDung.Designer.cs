@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.qL_NhomNguoiDungComboBox = new System.Windows.Forms.ComboBox();
+            this.qL_NhomNguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsNguoidung = new WindowsFormsApplication1.dsNguoidung();
             this.qL_NguoiDungDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.qL_NguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fill_DKToolStrip = new System.Windows.Forms.ToolStrip();
             this.maNhomNguoiDungToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.maNhomNguoiDungToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.fill_DKToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.qL_NguoiDungNhomNguoiDung1DataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qL_NguoiDungNhomNguoiDung1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsNguoidung = new WindowsFormsApplication1.dsNguoidung();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.qL_NguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qL_NhomNguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.qL_NhomNguoiDungTableAdapter = new WindowsFormsApplication1.dsNguoidungTableAdapters.QL_NhomNguoiDungTableAdapter();
             this.tableAdapterManager = new WindowsFormsApplication1.dsNguoidungTableAdapters.TableAdapterManager();
             this.qL_NguoiDungTableAdapter = new WindowsFormsApplication1.dsNguoidungTableAdapters.QL_NguoiDungTableAdapter();
@@ -55,15 +55,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.qL_NguoiDungNhomNguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qL_NguoiDungNhomNguoiDungTableAdapter = new WindowsFormsApplication1.dsNguoidungTableAdapters.QL_NguoiDungNhomNguoiDungTableAdapter();
+            this.qL_PhanQuyenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qL_PhanQuyenTableAdapter = new WindowsFormsApplication1.dsNguoidungTableAdapters.QL_PhanQuyenTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsNguoidung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungBindingSource)).BeginInit();
             this.fill_DKToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungNhomNguoiDung1DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungNhomNguoiDung1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsNguoidung)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungNhomNguoiDungBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_PhanQuyenBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // qL_NhomNguoiDungComboBox
@@ -78,6 +81,16 @@
             this.qL_NhomNguoiDungComboBox.ValueMember = "MaNhom";
             this.qL_NhomNguoiDungComboBox.SelectedIndexChanged += new System.EventHandler(this.qL_NhomNguoiDungComboBox_SelectedIndexChanged);
             // 
+            // qL_NhomNguoiDungBindingSource
+            // 
+            this.qL_NhomNguoiDungBindingSource.DataMember = "QL_NhomNguoiDung";
+            this.qL_NhomNguoiDungBindingSource.DataSource = this.dsNguoidung;
+            // 
+            // dsNguoidung
+            // 
+            this.dsNguoidung.DataSetName = "dsNguoidung";
+            this.dsNguoidung.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // qL_NguoiDungDataGridView
             // 
             this.qL_NguoiDungDataGridView.AutoGenerateColumns = false;
@@ -91,6 +104,29 @@
             this.qL_NguoiDungDataGridView.Name = "qL_NguoiDungDataGridView";
             this.qL_NguoiDungDataGridView.Size = new System.Drawing.Size(346, 226);
             this.qL_NguoiDungDataGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TenDangNhap";
+            this.dataGridViewTextBoxColumn1.HeaderText = "TenDangNhap";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "MatKhau";
+            this.dataGridViewTextBoxColumn2.HeaderText = "MatKhau";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "HoatDong";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "HoatDong";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // qL_NguoiDungBindingSource
+            // 
+            this.qL_NguoiDungBindingSource.DataMember = "QL_NguoiDung";
+            this.qL_NguoiDungBindingSource.DataSource = this.dsNguoidung;
             // 
             // fill_DKToolStrip
             // 
@@ -137,16 +173,6 @@
             this.qL_NguoiDungNhomNguoiDung1DataGridView.Size = new System.Drawing.Size(342, 220);
             this.qL_NguoiDungNhomNguoiDung1DataGridView.TabIndex = 3;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(384, 164);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Them";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "TenDangNhap";
@@ -170,38 +196,15 @@
             this.qL_NguoiDungNhomNguoiDung1BindingSource.DataMember = "QL_NguoiDungNhomNguoiDung1";
             this.qL_NguoiDungNhomNguoiDung1BindingSource.DataSource = this.dsNguoidung;
             // 
-            // dsNguoidung
+            // button1
             // 
-            this.dsNguoidung.DataSetName = "dsNguoidung";
-            this.dsNguoidung.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TenDangNhap";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TenDangNhap";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MatKhau";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MatKhau";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "HoatDong";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "HoatDong";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
-            // qL_NguoiDungBindingSource
-            // 
-            this.qL_NguoiDungBindingSource.DataMember = "QL_NguoiDung";
-            this.qL_NguoiDungBindingSource.DataSource = this.dsNguoidung;
-            // 
-            // qL_NhomNguoiDungBindingSource
-            // 
-            this.qL_NhomNguoiDungBindingSource.DataMember = "QL_NhomNguoiDung";
-            this.qL_NhomNguoiDungBindingSource.DataSource = this.dsNguoidung;
+            this.button1.Location = new System.Drawing.Point(384, 164);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Them";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // qL_NhomNguoiDungTableAdapter
             // 
@@ -214,6 +217,7 @@
             this.tableAdapterManager.QL_NguoiDungNhomNguoiDungTableAdapter = null;
             this.tableAdapterManager.QL_NguoiDungTableAdapter = this.qL_NguoiDungTableAdapter;
             this.tableAdapterManager.QL_NhomNguoiDungTableAdapter = this.qL_NhomNguoiDungTableAdapter;
+            this.tableAdapterManager.QL_PhanQuyenTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = WindowsFormsApplication1.dsNguoidungTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // qL_NguoiDungTableAdapter
@@ -248,6 +252,15 @@
             // 
             this.qL_NguoiDungNhomNguoiDungTableAdapter.ClearBeforeFill = true;
             // 
+            // qL_PhanQuyenBindingSource
+            // 
+            this.qL_PhanQuyenBindingSource.DataMember = "QL_PhanQuyen";
+            this.qL_PhanQuyenBindingSource.DataSource = this.dsNguoidung;
+            // 
+            // qL_PhanQuyenTableAdapter
+            // 
+            this.qL_PhanQuyenTableAdapter.ClearBeforeFill = true;
+            // 
             // frmThemNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,16 +275,17 @@
             this.Name = "frmThemNguoiDung";
             this.Text = "frmThemNguoiDung";
             this.Load += new System.EventHandler(this.frmThemNguoiDung_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsNguoidung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungBindingSource)).EndInit();
             this.fill_DKToolStrip.ResumeLayout(false);
             this.fill_DKToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungNhomNguoiDung1DataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungNhomNguoiDung1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsNguoidung)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NhomNguoiDungBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qL_NguoiDungNhomNguoiDungBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qL_PhanQuyenBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,5 +319,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource qL_NguoiDungNhomNguoiDungBindingSource;
         private dsNguoidungTableAdapters.QL_NguoiDungNhomNguoiDungTableAdapter qL_NguoiDungNhomNguoiDungTableAdapter;
+        private System.Windows.Forms.BindingSource qL_PhanQuyenBindingSource;
+        private dsNguoidungTableAdapters.QL_PhanQuyenTableAdapter qL_PhanQuyenTableAdapter;
     }
 }

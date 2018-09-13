@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LTWNCConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LTWNCConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApplication1.Properties.Settings.GlobalReference.Default.LTWNCConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LTWNCConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="LTWNCConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApplication1.Properties.Settings.GlobalReference.Default.LTWNCConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_NguoiDungTableAdapter" GeneratorDataComponentClassName="QL_NguoiDungTableAdapter" Name="QL_NguoiDung" UserDataComponentName="QL_NguoiDungTableAdapter">
@@ -118,7 +118,7 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
               <Mapping SourceColumn="GhiChu" DataSetColumn="GhiChu" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuery">
+              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM QL_NguoiDungNhomNguoiDung
@@ -131,7 +131,7 @@ WHERE        (TenDangNhap = @Original_TenDangNhap) AND (MaNhomNguoiDung = @Origi
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery">
+              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[QL_NguoiDungNhomNguoiDung] ([TenDangNhap], [MaNhomNguoiDung], [GhiChu]) VALUES (@TenDangNhap, @MaNhomNguoiDung, @GhiChu);</CommandText>
@@ -257,6 +257,125 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_GetPhanQuyenTableAdapter" GeneratorDataComponentClassName="QL_GetPhanQuyenTableAdapter" Name="QL_GetPhanQuyen" UserDataComponentName="QL_GetPhanQuyenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        DM_ManHinh.MaManHinh, DM_ManHinh.TenManHinh, QL_PhanQuyen.CoQuyen
+FROM            DM_ManHinh LEFT JOIN
+QL_PhanQuyen ON DM_ManHinh.MaManHinh = QL_PhanQuyen.MaManHinh 
+AND QL_PhanQuyen.MaNhomNguoiDung = @MaNhomNguoiDung
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaNhomNguoiDung" ColumnName="MaNhomNguoiDung" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaManHinh" DataSetColumn="MaManHinh" />
+              <Mapping SourceColumn="TenManHinh" DataSetColumn="TenManHinh" />
+              <Mapping SourceColumn="CoQuyen" DataSetColumn="CoQuyen" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_PhanQuyenTableAdapter" GeneratorDataComponentClassName="QL_PhanQuyenTableAdapter" Name="QL_PhanQuyen" UserDataComponentName="QL_PhanQuyenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="LTWNC.dbo.QL_PhanQuyen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [QL_PhanQuyen] WHERE (([MaNhomNguoiDung] = @Original_MaNhomNguoiDung) AND ([MaManHinh] = @Original_MaManHinh) AND ([CoQuyen] = @Original_CoQuyen))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaManHinh" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaManHinh" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_CoQuyen" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="CoQuyen" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [QL_PhanQuyen] ([MaNhomNguoiDung], [MaManHinh], [CoQuyen]) VALUES (@MaNhomNguoiDung, @MaManHinh, @CoQuyen);
+SELECT MaNhomNguoiDung, MaManHinh, CoQuyen FROM QL_PhanQuyen WHERE (MaManHinh = @MaManHinh) AND (MaNhomNguoiDung = @MaNhomNguoiDung)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaManHinh" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaManHinh" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@CoQuyen" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="CoQuyen" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MaNhomNguoiDung, MaManHinh, CoQuyen
+FROM            QL_PhanQuyen
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [QL_PhanQuyen] SET [MaNhomNguoiDung] = @MaNhomNguoiDung, [MaManHinh] = @MaManHinh, [CoQuyen] = @CoQuyen WHERE (([MaNhomNguoiDung] = @Original_MaNhomNguoiDung) AND ([MaManHinh] = @Original_MaManHinh) AND ([CoQuyen] = @Original_CoQuyen));
+SELECT MaNhomNguoiDung, MaManHinh, CoQuyen FROM QL_PhanQuyen WHERE (MaManHinh = @MaManHinh) AND (MaNhomNguoiDung = @MaNhomNguoiDung)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@MaManHinh" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaManHinh" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@CoQuyen" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="CoQuyen" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_MaManHinh" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="MaManHinh" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_CoQuyen" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="CoQuyen" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaNhomNguoiDung" DataSetColumn="MaNhomNguoiDung" />
+              <Mapping SourceColumn="MaManHinh" DataSetColumn="MaManHinh" />
+              <Mapping SourceColumn="CoQuyen" DataSetColumn="CoQuyen" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="LTWNC.dbo.QL_PhanQuyen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="KiemTraPhanQuyen" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="KiemTraPhanQuyen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="KiemTraPhanQuyen" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        MaNhomNguoiDung,MaManHinh,CoQuyen
+FROM            QL_PhanQuyen
+WHERE  MaNhomNguoiDung = @MaNhomNguoiDung
+AND MaManHinh=@MaManHinh</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaNhomNguoiDung" ColumnName="MaNhomNguoiDung" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaManHinh" ColumnName="MaManHinh" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@MaManHinh" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="MaManHinh" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Insert1" Modifier="Public" Name="Insert1" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Insert1">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO [QL_PhanQuyen] ([MaNhomNguoiDung], [MaManHinh], [CoQuyen]) VALUES (@MaNhomNguoiDung, @MaManHinh, @CoQuyen);</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaNhomNguoiDung" ColumnName="MaNhomNguoiDung" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaManHinh" ColumnName="MaManHinh" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@MaManHinh" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="MaManHinh" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CoQuyen" ColumnName="CoQuyen" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@CoQuyen" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="CoQuyen" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="LTWNCConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE QL_PhanQuyen set CoQuyen=@CoQuyen where (MaNhomNguoiDung=@MaNhomNguoiDung)
+AND (MaManHinh=@MaManHinh)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CoQuyen" ColumnName="CoQuyen" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@CoQuyen" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="CoQuyen" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaNhomNguoiDung" ColumnName="MaNhomNguoiDung" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="MaNhomNguoiDung" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaManHinh" ColumnName="MaManHinh" DataSourceName="LTWNC.dbo.QL_PhanQuyen" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@MaManHinh" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="MaManHinh" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -265,7 +384,7 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
   <xs:element name="dsNguoidung" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsNguoidung" msprop:Generator_UserDSName="dsNguoidung">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="QL_NguoiDung" msprop:Generator_TableClassName="QL_NguoiDungDataTable" msprop:Generator_TableVarName="tableQL_NguoiDung" msprop:Generator_RowChangedName="QL_NguoiDungRowChanged" msprop:Generator_TablePropName="QL_NguoiDung" msprop:Generator_RowDeletingName="QL_NguoiDungRowDeleting" msprop:Generator_RowChangingName="QL_NguoiDungRowChanging" msprop:Generator_RowEvHandlerName="QL_NguoiDungRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NguoiDungRowDeleted" msprop:Generator_RowClassName="QL_NguoiDungRow" msprop:Generator_UserTableName="QL_NguoiDung" msprop:Generator_RowEvArgName="QL_NguoiDungRowChangeEvent">
+        <xs:element name="QL_NguoiDung" msprop:Generator_TableClassName="QL_NguoiDungDataTable" msprop:Generator_TableVarName="tableQL_NguoiDung" msprop:Generator_TablePropName="QL_NguoiDung" msprop:Generator_RowDeletingName="QL_NguoiDungRowDeleting" msprop:Generator_RowChangingName="QL_NguoiDungRowChanging" msprop:Generator_RowEvHandlerName="QL_NguoiDungRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NguoiDungRowDeleted" msprop:Generator_UserTableName="QL_NguoiDung" msprop:Generator_RowChangedName="QL_NguoiDungRowChanged" msprop:Generator_RowEvArgName="QL_NguoiDungRowChangeEvent" msprop:Generator_RowClassName="QL_NguoiDungRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TenDangNhap" msprop:Generator_ColumnVarNameInTable="columnTenDangNhap" msprop:Generator_ColumnPropNameInRow="TenDangNhap" msprop:Generator_ColumnPropNameInTable="TenDangNhapColumn" msprop:Generator_UserColumnName="TenDangNhap">
@@ -286,7 +405,7 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QL_NguoiDungNhomNguoiDung" msprop:Generator_TableClassName="QL_NguoiDungNhomNguoiDungDataTable" msprop:Generator_TableVarName="tableQL_NguoiDungNhomNguoiDung" msprop:Generator_RowChangedName="QL_NguoiDungNhomNguoiDungRowChanged" msprop:Generator_TablePropName="QL_NguoiDungNhomNguoiDung" msprop:Generator_RowDeletingName="QL_NguoiDungNhomNguoiDungRowDeleting" msprop:Generator_RowChangingName="QL_NguoiDungNhomNguoiDungRowChanging" msprop:Generator_RowEvHandlerName="QL_NguoiDungNhomNguoiDungRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NguoiDungNhomNguoiDungRowDeleted" msprop:Generator_RowClassName="QL_NguoiDungNhomNguoiDungRow" msprop:Generator_UserTableName="QL_NguoiDungNhomNguoiDung" msprop:Generator_RowEvArgName="QL_NguoiDungNhomNguoiDungRowChangeEvent">
+        <xs:element name="QL_NguoiDungNhomNguoiDung" msprop:Generator_TableClassName="QL_NguoiDungNhomNguoiDungDataTable" msprop:Generator_TableVarName="tableQL_NguoiDungNhomNguoiDung" msprop:Generator_TablePropName="QL_NguoiDungNhomNguoiDung" msprop:Generator_RowDeletingName="QL_NguoiDungNhomNguoiDungRowDeleting" msprop:Generator_RowChangingName="QL_NguoiDungNhomNguoiDungRowChanging" msprop:Generator_RowEvHandlerName="QL_NguoiDungNhomNguoiDungRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NguoiDungNhomNguoiDungRowDeleted" msprop:Generator_UserTableName="QL_NguoiDungNhomNguoiDung" msprop:Generator_RowChangedName="QL_NguoiDungNhomNguoiDungRowChanged" msprop:Generator_RowEvArgName="QL_NguoiDungNhomNguoiDungRowChangeEvent" msprop:Generator_RowClassName="QL_NguoiDungNhomNguoiDungRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TenDangNhap" msprop:Generator_ColumnVarNameInTable="columnTenDangNhap" msprop:Generator_ColumnPropNameInRow="TenDangNhap" msprop:Generator_ColumnPropNameInTable="TenDangNhapColumn" msprop:Generator_UserColumnName="TenDangNhap">
@@ -313,7 +432,7 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QL_NhomNguoiDung" msprop:Generator_TableClassName="QL_NhomNguoiDungDataTable" msprop:Generator_TableVarName="tableQL_NhomNguoiDung" msprop:Generator_RowChangedName="QL_NhomNguoiDungRowChanged" msprop:Generator_TablePropName="QL_NhomNguoiDung" msprop:Generator_RowDeletingName="QL_NhomNguoiDungRowDeleting" msprop:Generator_RowChangingName="QL_NhomNguoiDungRowChanging" msprop:Generator_RowEvHandlerName="QL_NhomNguoiDungRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NhomNguoiDungRowDeleted" msprop:Generator_RowClassName="QL_NhomNguoiDungRow" msprop:Generator_UserTableName="QL_NhomNguoiDung" msprop:Generator_RowEvArgName="QL_NhomNguoiDungRowChangeEvent">
+        <xs:element name="QL_NhomNguoiDung" msprop:Generator_TableClassName="QL_NhomNguoiDungDataTable" msprop:Generator_TableVarName="tableQL_NhomNguoiDung" msprop:Generator_TablePropName="QL_NhomNguoiDung" msprop:Generator_RowDeletingName="QL_NhomNguoiDungRowDeleting" msprop:Generator_RowChangingName="QL_NhomNguoiDungRowChanging" msprop:Generator_RowEvHandlerName="QL_NhomNguoiDungRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NhomNguoiDungRowDeleted" msprop:Generator_UserTableName="QL_NhomNguoiDung" msprop:Generator_RowChangedName="QL_NhomNguoiDungRowChanged" msprop:Generator_RowEvArgName="QL_NhomNguoiDungRowChangeEvent" msprop:Generator_RowClassName="QL_NhomNguoiDungRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MaNhom" msprop:Generator_ColumnVarNameInTable="columnMaNhom" msprop:Generator_ColumnPropNameInRow="MaNhom" msprop:Generator_ColumnPropNameInTable="MaNhomColumn" msprop:Generator_UserColumnName="MaNhom">
@@ -340,7 +459,7 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QL_NguoiDungNhomNguoiDung1" msprop:Generator_TableClassName="QL_NguoiDungNhomNguoiDung1DataTable" msprop:Generator_TableVarName="tableQL_NguoiDungNhomNguoiDung1" msprop:Generator_RowChangedName="QL_NguoiDungNhomNguoiDung1RowChanged" msprop:Generator_TablePropName="QL_NguoiDungNhomNguoiDung1" msprop:Generator_RowDeletingName="QL_NguoiDungNhomNguoiDung1RowDeleting" msprop:Generator_RowChangingName="QL_NguoiDungNhomNguoiDung1RowChanging" msprop:Generator_RowEvHandlerName="QL_NguoiDungNhomNguoiDung1RowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NguoiDungNhomNguoiDung1RowDeleted" msprop:Generator_RowClassName="QL_NguoiDungNhomNguoiDung1Row" msprop:Generator_UserTableName="QL_NguoiDungNhomNguoiDung1" msprop:Generator_RowEvArgName="QL_NguoiDungNhomNguoiDung1RowChangeEvent">
+        <xs:element name="QL_NguoiDungNhomNguoiDung1" msprop:Generator_TableClassName="QL_NguoiDungNhomNguoiDung1DataTable" msprop:Generator_TableVarName="tableQL_NguoiDungNhomNguoiDung1" msprop:Generator_TablePropName="QL_NguoiDungNhomNguoiDung1" msprop:Generator_RowDeletingName="QL_NguoiDungNhomNguoiDung1RowDeleting" msprop:Generator_RowChangingName="QL_NguoiDungNhomNguoiDung1RowChanging" msprop:Generator_RowEvHandlerName="QL_NguoiDungNhomNguoiDung1RowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NguoiDungNhomNguoiDung1RowDeleted" msprop:Generator_UserTableName="QL_NguoiDungNhomNguoiDung1" msprop:Generator_RowChangedName="QL_NguoiDungNhomNguoiDung1RowChanged" msprop:Generator_RowEvArgName="QL_NguoiDungNhomNguoiDung1RowChangeEvent" msprop:Generator_RowClassName="QL_NguoiDungNhomNguoiDung1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TenDangNhap" msprop:Generator_ColumnVarNameInTable="columnTenDangNhap" msprop:Generator_ColumnPropNameInRow="TenDangNhap" msprop:Generator_ColumnPropNameInTable="TenDangNhapColumn" msprop:Generator_UserColumnName="TenDangNhap">
@@ -367,6 +486,48 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="QL_GetPhanQuyen" msprop:Generator_TableClassName="QL_GetPhanQuyenDataTable" msprop:Generator_TableVarName="tableQL_GetPhanQuyen" msprop:Generator_TablePropName="QL_GetPhanQuyen" msprop:Generator_RowDeletingName="QL_GetPhanQuyenRowDeleting" msprop:Generator_RowChangingName="QL_GetPhanQuyenRowChanging" msprop:Generator_RowEvHandlerName="QL_GetPhanQuyenRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_GetPhanQuyenRowDeleted" msprop:Generator_UserTableName="QL_GetPhanQuyen" msprop:Generator_RowChangedName="QL_GetPhanQuyenRowChanged" msprop:Generator_RowEvArgName="QL_GetPhanQuyenRowChangeEvent" msprop:Generator_RowClassName="QL_GetPhanQuyenRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaManHinh" msprop:Generator_ColumnVarNameInTable="columnMaManHinh" msprop:Generator_ColumnPropNameInRow="MaManHinh" msprop:Generator_ColumnPropNameInTable="MaManHinhColumn" msprop:Generator_UserColumnName="MaManHinh">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenManHinh" msprop:Generator_ColumnVarNameInTable="columnTenManHinh" msprop:Generator_ColumnPropNameInRow="TenManHinh" msprop:Generator_ColumnPropNameInTable="TenManHinhColumn" msprop:Generator_UserColumnName="TenManHinh">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CoQuyen" msprop:Generator_ColumnVarNameInTable="columnCoQuyen" msprop:Generator_ColumnPropNameInRow="CoQuyen" msprop:Generator_ColumnPropNameInTable="CoQuyenColumn" msprop:Generator_UserColumnName="CoQuyen" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QL_PhanQuyen" msprop:Generator_TableClassName="QL_PhanQuyenDataTable" msprop:Generator_TableVarName="tableQL_PhanQuyen" msprop:Generator_TablePropName="QL_PhanQuyen" msprop:Generator_RowDeletingName="QL_PhanQuyenRowDeleting" msprop:Generator_RowChangingName="QL_PhanQuyenRowChanging" msprop:Generator_RowEvHandlerName="QL_PhanQuyenRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_PhanQuyenRowDeleted" msprop:Generator_UserTableName="QL_PhanQuyen" msprop:Generator_RowChangedName="QL_PhanQuyenRowChanged" msprop:Generator_RowEvArgName="QL_PhanQuyenRowChangeEvent" msprop:Generator_RowClassName="QL_PhanQuyenRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaNhomNguoiDung" msprop:Generator_ColumnVarNameInTable="columnMaNhomNguoiDung" msprop:Generator_ColumnPropNameInRow="MaNhomNguoiDung" msprop:Generator_ColumnPropNameInTable="MaNhomNguoiDungColumn" msprop:Generator_UserColumnName="MaNhomNguoiDung">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaManHinh" msprop:Generator_ColumnVarNameInTable="columnMaManHinh" msprop:Generator_ColumnPropNameInRow="MaManHinh" msprop:Generator_ColumnPropNameInTable="MaManHinhColumn" msprop:Generator_UserColumnName="MaManHinh">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CoQuyen" msprop:Generator_ColumnVarNameInTable="columnCoQuyen" msprop:Generator_ColumnPropNameInRow="CoQuyen" msprop:Generator_ColumnPropNameInTable="CoQuyenColumn" msprop:Generator_UserColumnName="CoQuyen" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -386,6 +547,15 @@ SELECT TenDangNhap, MaNhomNguoiDung, GhiChu FROM QL_NguoiDungNhomNguoiDung WHERE
       <xs:selector xpath=".//mstns:QL_NguoiDungNhomNguoiDung1" />
       <xs:field xpath="mstns:TenDangNhap" />
       <xs:field xpath="mstns:MaNhomNguoiDung" />
+    </xs:unique>
+    <xs:unique name="QL_GetPhanQuyen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:QL_GetPhanQuyen" />
+      <xs:field xpath="mstns:MaManHinh" />
+    </xs:unique>
+    <xs:unique name="QL_PhanQuyen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:QL_PhanQuyen" />
+      <xs:field xpath="mstns:MaNhomNguoiDung" />
+      <xs:field xpath="mstns:MaManHinh" />
     </xs:unique>
   </xs:element>
 </xs:schema>

@@ -27,6 +27,8 @@ namespace WindowsFormsApplication1
 
         private void frmThemNguoiDung_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dsNguoidung.QL_PhanQuyen' table. You can move, or remove it, as needed.
+            this.qL_PhanQuyenTableAdapter.Fill(this.dsNguoidung.QL_PhanQuyen);
             // TODO: This line of code loads data into the 'dsNguoidung.QL_NguoiDungNhomNguoiDung' table. You can move, or remove it, as needed.
             this.qL_NguoiDungNhomNguoiDungTableAdapter.Fill(this.dsNguoidung.QL_NguoiDungNhomNguoiDung);
             // TODO: This line of code loads data into the 'dsNguoidung.QL_NguoiDung' table. You can move, or remove it, as needed.

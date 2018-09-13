@@ -29,5 +29,11 @@ namespace WindowsFormsApplication1
             frmThemNguoiDung frminsertND = new frmThemNguoiDung();
             frminsertND.ShowDialog();
         }
+
+        private void phanquyenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formPhanQuyen formPhanQuyen = new formPhanQuyen();
+            formPhanQuyen.ShowDialog();
+        }
     }
 }
