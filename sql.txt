@@ -1,0 +1,4 @@
+SELECT        DM_ManHinh.MaManHinh, DM_ManHinh.TenManHinh, QL_PhanQuyen.CoQuyen
+FROM            DM_ManHinh LEFT JOIN
+QL_PhanQuyen ON DM_ManHinh.MaManHinh = QL_PhanQuyen.MaManHinh 
+AND QL_PhanQuyen.MaNhomNguoiDung = @MaNhomNguoiDung
