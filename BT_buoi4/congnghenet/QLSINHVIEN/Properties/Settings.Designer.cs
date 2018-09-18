@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication1.Properties {
+namespace QLSINHVIEN.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,22 +26,11 @@ namespace WindowsFormsApplication1.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=D21119;Initial Catalog=LTWNC;User ID=sa;Password=sql2012")]
-        public string LTWNCConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=D21116;Initial Catalog=QLSINHVIEN;Persist Security Info=True;User ID=" +
+            "sa;Password=sql2012")]
+        public string QLSINHVIENConnectionString {
             get {
-                return ((string)(this["LTWNCConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=D21119;Initial Catalog=LTWNC;User ID=sa;Password=sql2012")]
-        public string LTWNC {
-            get {
-                return ((string)(this["LTWNC"]));
-            }
-            set {
-                this["LTWNC"] = value;
+                return ((string)(this["QLSINHVIENConnectionString"]));
             }
         }
     }
