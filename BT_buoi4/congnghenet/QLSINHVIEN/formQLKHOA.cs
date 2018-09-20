@@ -91,11 +91,23 @@ namespace QLSINHVIEN
             {
                 string makhoa = khoaDataGridView.CurrentRow.Cells[0].Value.ToString();
                 Khoa khoa = qlsv.Khoas.Where(a => a.MaKhoa == makhoa).FirstOrDefault();
-                txtMaKhoa.Text = khoa.MaKhoa;
-                txtTenKhoa.Text = khoa.TenKhoa;
-                btnsua.Enabled = true;
-                btnxoa.Enabled = true;
+                if (khoa != null)
+                {
+                    txtMaKhoa.Text = khoa.MaKhoa;
+                    txtTenKhoa.Text = khoa.TenKhoa;
+                    btnsua.Enabled = true;
+                    btnxoa.Enabled = true;
+                }
             }
+        }
+
+        private void btnxoa_Click(object sender, EventArgs e)
+        {
+            string makhoa = khoaDataGridView.CurrentRow.Cells[0].Value.ToString();
+            Khoa khoa = qlsv.Khoas.Where(a => a.MaKhoa == makhoa).FirstOrDefault();
+            qlsv.Khoas.DeleteOnSubmit(khoa);
+            qlsv.SubmitChanges();
+            khoaDataGridView.DataSource = this.getAllKhoa();
         }
     }
 }
