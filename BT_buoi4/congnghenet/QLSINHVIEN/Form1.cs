@@ -25,8 +25,8 @@ namespace QLSINHVIEN
 
         private void quanlykhoaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
-
+            formQLKHOA qlkhoa = new formQLKHOA();
+            qlkhoa.ShowDialog();
         }
     }
 }
